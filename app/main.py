@@ -1,10 +1,14 @@
-from fastapi import FastAPI, Request, Response
-from fastapi.responses import HTMLResponse
+from fastapi import FastAPI, Request, Response, File, UploadFile
+from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.templating import Jinja2Templates
 import pathlib
+import os
+import io
+import uuid
 
 
 BASE_DIR = pathlib.Path(__file__).parent
+UPLOADED_DIR = BASE_DIR / 'uploaded'
 
 app = FastAPI()
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
@@ -19,3 +23,13 @@ def home_view(request: Request):
 @app.post("/")
 def home_detail_view():
     return {"message": "Hello World"}
+
+@app.post("/img-echo", response_class=FileResponse)
+async def img_echo_view(file: UploadFile = File(...)):
+    bytes_str = io.BytesIO(await file.read())
+    fname = pathlib.Path(file.filename)
+    fext = fname.suffix
+    dest = UPLOADED_DIR / f"{uuid.uuid4()}{fext}"
+    with open(dest, "wb") as f:
+        f.write(bytes_str.read())
+    return dest
