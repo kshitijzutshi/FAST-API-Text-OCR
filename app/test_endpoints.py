@@ -37,5 +37,5 @@ def test_echo_upload():
         # assert response.headers["content-disposition"] == "inline; filename=image.png"
         # assert response.headers["content-length"] == "15"
         # assert response.headers["content-transfer-encoding"] == "binary"
-    # shutil.rmtree(UPLOADED_DIR)
-    # time.sleep(3)
+    shutil.rmtree(UPLOADED_DIR)
+    time.sleep(3)
