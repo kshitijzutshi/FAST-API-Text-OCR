@@ -22,27 +22,20 @@ Python &amp; FastAPI Tutorial: Create an ai microservice to extract text from im
 
 ### Project Requirements
 
+```
 fastapi
-
 gunicorn
-
 uvicorn
-
 jinja2
-
 pytest
-
 requests
-
 pre-commit
-
 python-dotenv
-
 python-multipart
-
 aiofiles
-
 pillow
+
+```
 
 ### Working with Pre-Commit
 
