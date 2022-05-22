@@ -26,8 +26,8 @@ def test_post_home():
 
 def test_echo_upload():
     img_saved_path = BASE_DIR / "images"
-    print(list((BASE_DIR / "uploads").glob("*")))
-    path = list((BASE_DIR / "uploads").glob("*"))[0]
+    # print(list(UPLOADED_DIR.glob("*")))
+    # path = list((BASE_DIR / "uploads").glob("*"))[0]
     for path in img_saved_path.glob("*.png"):
 
         response = client.post("/img-echo", files={"file": open(path, "rb")})
