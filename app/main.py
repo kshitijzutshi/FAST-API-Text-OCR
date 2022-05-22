@@ -8,7 +8,10 @@ import uuid
 
 
 BASE_DIR = pathlib.Path(__file__).parent
-UPLOADED_DIR = BASE_DIR / 'uploaded'
+# create directory if dosent exist
+if not os.path.exists(BASE_DIR / "uploads"):
+    os.mkdir(BASE_DIR / "uploads")
+UPLOADED_DIR = BASE_DIR / "uploads"
 
 app = FastAPI()
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))

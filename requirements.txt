@@ -7,3 +7,5 @@ requests
 pre-commit
 python-dotenv
 python-multipart
+aiofiles
+pillow
