@@ -77,6 +77,23 @@ pip install pytesseract
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Users\USER\AppData\Local\Tesseract-OCR\tesseract.exe'
 
+**For Streamlit Cloud app dependency issue**
+
+The installation instructions for pytesseract say that Google’s tesseract-ocr is a dependency. Meaning, you need to install tesseract-ocr as an apt-get dependency (for Linux applications outside the Python environment).
+
+The way to do that is to include the necessary dependencies in a packages.txt file in your repo:
+
+    Create a new packages.txt file with the following lines:
+
+    tesseract-ocr
+    tesseract-ocr-por
+
+    The first line installs the base tesseract-ocr application and supports only English by default. To support Portuguese, you need to install a language specific tesseract data file, which we do in the second line.
+
+    Reboot your app
+
+Once you make the above changes, your app should successfully deploy! :tada:
+
 ### Securing the Endpoint using Auth Tokens
 
 1. Generate a random token using Python secrets library

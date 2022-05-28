@@ -11,7 +11,10 @@ import uuid
 from PIL import Image
 import pytesseract
 import dotenv
+import base64
+import json
 
+# pytesseract.pytesseract.tesseract_cmd = r'C:\Users\kshitij\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'
 
 BASE_DIR = pathlib.Path(__file__).parent
 # create directory if dosent exist
@@ -42,11 +45,11 @@ async def img_prediction_view(file: UploadFile = File(...), authorization = Head
     verify_auth(authorization)
     # read the file upload as a byte string
     print(await file.read())
-    bytes_str = io.BytesIO(await file.read())
-    print(bytes_str)
+    # bytes_str = io.BytesIO(await file.read())
+    # print(bytes_str)
     try:
         # read the byte string as an image
-        image = Image.open(bytes_str)
+        image = Image.open(file)
     except:
         raise HTTPException(status_code=400, detail="Invalid image")
     preds = pytesseract.image_to_string(image)
@@ -89,6 +92,7 @@ with st.sidebar:
 st.write("## Uploaded picture")
 if image_bytes:
     st.write("🎉 Here's what you uploaded!")
+    st.write(file.name)
     st.image(image_bytes, width=200)
 else:
     st.warning("👈 Please upload an image first...")
@@ -98,7 +102,6 @@ else:
 st.write("## Extracted Text")
 
 # Extract text from the image
-if file:
-    preds_list = img_prediction_view(file, authorization = AUTH_TOKEN)
-    results = preds_list["results"]
-    st.write(results)
+if image_bytes:
+    st.write("🎉 Here's what we extracted from the picture!")
+    st.write(pytesseract.image_to_string(Image.open(file)))
