@@ -10,3 +10,4 @@ python-multipart
 aiofiles
 pillow
 pytesseract
+streamlit
