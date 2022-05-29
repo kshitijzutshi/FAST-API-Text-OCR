@@ -63,6 +63,8 @@ pillow
 2. add pytest.ini file to exclude the directories pytest looks for testing code
 3. Using pytest -s to stdout the test responses from endpoints as well.
 
+![image](https://user-images.githubusercontent.com/13203059/170846734-1bb36b29-233d-45c8-812f-2fbdac907634.png)
+
 ### Working with Tesseract OCR
 
 Reference - [Tesseract OCR GitHub](https://github.com/tesseract-ocr/tesseract)
