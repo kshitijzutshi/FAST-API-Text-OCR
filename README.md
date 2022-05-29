@@ -1,9 +1,18 @@
-# FAST-API-Text-OCR-
+# FASTAPI Microservice to Extract Text from Images
 Python &amp; FastAPI Tutorial: Create an ai microservice to extract text from images
 
 ### Objective
 
-Learn how to deploy an AI microservice REST API endpoint using FastAPI, pytesseract, Docker, & DigitalOcean App Platform
+Learn how to deploy an AI microservice REST API endpoint using FastAPI, pytesseract, streamlit cloud Platform
+
+### Streamlit deployment
+
+Checkout the application [live here 🚀](https://share.streamlit.io/kshitijzutshi/fast-api-text-ocr/streamlit/streamlit.py)
+
+**Screenshot 📸**
+
+![image](https://user-images.githubusercontent.com/13203059/170846671-720807ae-0eee-43cd-bfe9-d5ad4cd661ad.png)
+
 
 ### Project Implementation Outline
 
